@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load navbar_catalog %}
+
+{% block title %}"Декоративная штукатурка" и "Арт-Бетон" Вид{{ decorativeplaster.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% navbar_catalog %}
+    <h1 style="text-align: center; font-style: italic;">Описание и вид выполненной работы: {{ paster.name }}</h1>
+
+    <div class="card">
+        <div class="row">
+            <div class="col-4">
+                <img src="{{ paster.image.url }}" class="card-img-top" alt="...">
+            </div>
+            <div class="col-8">
+                <div class="card-body" style="font-style: italic;">
+                    <h5 class="card-title">{{ paster.name }}</h5>
+                    <p class="card-text"><strong>Категория:</strong> {{ paster.type.category.name }}</p>
+                    <p class="card-text"><strong>Вид:</strong> {{ paster.type.name }}</p>
+                    <p class="card-text"><strong>Описание:</strong> {{ paster.description }}</p>
+                    <p class="card-text"><strong>Производитель:</strong> {{ paster.manufacturer.name }}</p>
+                    <p class="card-text"><strong>Информация о производителе:</strong> {{ paster.manufacturer.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

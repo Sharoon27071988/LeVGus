@@ -1,0 +1,24 @@
+<ul class="nav nav-pills nav-fill mb-3">
+    <li class="nav-item">
+        <a class="nav-link {% if home %}active{% endif %}" aria-current="page" href="{% url 'home' %}"
+           style="color: black; font-size: 25px; font-style: italic">Главная</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle {% if catalog %}active{% endif %}" data-bs-toggle="dropdown" href="#"
+           role="button" aria-expanded="false" style="color: black; font-size: 25px; font-style: italic">Каталог</a>
+        <ul class="dropdown-menu">
+            {% for category in categories %}
+            <li><a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if company_info %}active{% endif %}" href="{% url 'company_info' %}"
+           style="color: black; font-size: 25px; font-style: italic">Общая информация, цены/услуги, сотрудничество</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if cooperation_info %}active{% endif %}" href="{% url 'cooperation_info' %} "
+           tabindex="-1" style="color: black; font-size: 25px; font-style: italic">Дополнительно</a>
+    </li>
+</ul>
+
